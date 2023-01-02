@@ -12,11 +12,15 @@ Execution Context contains two components. 1) Memory or Variable Environment whe
 
 <img width="606" alt="image" src="https://user-images.githubusercontent.com/22653056/210219886-7e087e81-646e-4b4a-b65f-ebd2363d947e.png">
 
-As soon as the JS code runs, an execution context is created in TWO phases. 1. Memory creation phase 2. Code execution phase
 
-Memory allocation phase- all the variables  and functions get their memory allocated in the memory with undefined and the entire code  respectively. 
 
-Code execution phase - in this phase  thread execution happens and all the variables get their actual values which were assigned to them and as function is invoked, a new execution environment gets created in the code part, and again there are two phases, memory allocation phase and code execution phase. And the cycle repeats.
+1. When JavaScript code is executed, Execution Context is created and it is called Global Execution Context.
+2. JavaScript program is executed in TWO PHASES inside Execution Context
+  a. MEMORY ALLOCATION PHASE - JavaScript program goes throughout the program and allocate memory of Variables and Functions declared in program. all the variables  and functions get their memory allocated in the memory with undefined and the entire code  respectively. 
+  b. CODE EXECUTION PHASE -  JavaScript program now goes throughout the code line by line and execute the code. 
+3. A Function is invoked when it is called and it acts as another MINI PROGRAM and creates its own Execution Context.
+4. Returns keyword return the Control back to the PREVIOUS Execution-Context where the Function is called and Execution Context of the Function is DELETED.
+5. CALL STACK maintains the ORDER of execution of Execution Contexts. It CREATES Execution Context whenever a Program starts or a Function is invoked and it pops out the Execution Context when a Function or Program ENDS.
 
 
 Javascript has CALL STACK which manages the Execution contexts.
@@ -32,6 +36,10 @@ E1 -> was one of the inner Execution context created by the functions
 Call stack is also known as
 
 <img width="966" alt="image" src="https://user-images.githubusercontent.com/22653056/210222981-66f70b7b-4d21-4b88-a166-6fffe35d7312.png">
+
+## Hoisting
+
+
 
 
 
