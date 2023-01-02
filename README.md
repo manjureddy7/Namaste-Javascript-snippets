@@ -14,9 +14,10 @@ Execution Context contains two components. 1) Memory or Variable Environment whe
 
 As soon as the JS code runs, an execution context is created in TWO phases. 1. Memory creation phase 2. Code execution phase
 
-In Memory creation phase all the variables and functions are placed in the memory block. The variables will get UNDEFINED as their initial value & functions will get their block of code as their values .
-Once this phase is done, javascript is again run from top to bottom or line by line, the varibales inside the memory block will get their appropriate values.
-When functions start executing, JS will again create a brand new Execution Context for that function instance and start allocating memory and updates the variables, once function execution is done, the EC will be deleted and brings the control to the GLOBAL thread of execution where this function being called.
+Memory allocation phase- all the variables  and functions get their memory allocated in the memory with undefined and the entire code  respectively. 
+
+Code execution phase - in this phase  thread execution happens and all the variables get their actual values which were assigned to them and as function is invoked, a new execution environment gets created in the code part, and again there are two phases, memory allocation phase and code execution phase. And the cycle repeats.
+
 
 Javascript has CALL STACK which manages the Execution contexts.
 
@@ -25,4 +26,12 @@ GEC -> Global Execution Context
 E1 -> was one of the inner Execution context created by the functions
 
 <img width="1277" alt="image" src="https://user-images.githubusercontent.com/22653056/210222659-c91399bc-2eb0-47e5-935c-62b37020c05a.png">
+
+<img width="863" alt="image" src="https://user-images.githubusercontent.com/22653056/210222930-8ce3c557-f751-4f56-a3df-68288bb96837.png">
+
+Call stack is also known as
+
+<img width="966" alt="image" src="https://user-images.githubusercontent.com/22653056/210222981-66f70b7b-4d21-4b88-a166-6fffe35d7312.png">
+
+
 
