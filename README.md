@@ -123,5 +123,6 @@ But its possible with VAR, var is leniant here you can REDECLARE variables with 
 6. shadowing let with var is illegal shadowing and gives error.
 7. var value stored in global memory and hence can be accessed outside block as well whereas same is not the case with let and const.
 
+<img width="1194" alt="image" src="https://user-images.githubusercontent.com/22653056/210322349-8a07a4fe-d411-40bf-9edc-32e2f04a6341.png">
 
 
