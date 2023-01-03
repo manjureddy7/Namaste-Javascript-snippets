@@ -39,6 +39,40 @@ Call stack is also known as
 
 ## Hoisting
 
+1. Hoisting in JavaScript is a process in which all the Variables, Functions and Class defination are declared BEFORE execution of the code 
+3. Variables are initialised to UNDEFINED when they are declared and Function defination is stored AS IT IS.
+4. They are declared in Memory Allocation Phase in the Memory Component of Execution Context, so we can use them even BEFORE they are declared.
+5. UNDEFINED means Variable has been declared but value is not ASSIGNED but NOT DEFINED means Variables is NOT DECLARED.
+6. When we assign Variable to a Function defination, we CAN NOT call this Variable as Function BEFORE declaration as it will behave as Variable with UNDEFINED value.
+
+## Scope Chain, Scope, Lexical Environment 
+
+Whenever a EXECUTION CONTEXT is createad a LEXICAL environment is also created.
+
+below ORANGE color section is the reference to the LE of its parent. 
+
+The process of finding any variable / fn down the line or down the scopes of context is called scope chain.
+
+Simple first the program tries to see in the local memory if it didn’t found there it goes to the parent and asks it, even if it didn’t found there it goes to grand parent level to find it, this drilldown is called scope chain
+
+<img width="1202" alt="image" src="https://user-images.githubusercontent.com/22653056/210314480-85d2235b-3a5f-4ae1-b07d-6f4b885639cf.png">
+
+
+0) Lexical environment = EC's Local Memory + Reference to Lexical Environment of its parent.
+
+1) Lexical Environment of its parent is the scope where a function is physically present or defined. So, suppose a function x(), is defined and invoked in the GEC, when function x()'s EC is pushed in the call stack, it stores a reference to its parent's lexical environment i.e. the GEC's memory.
+
+2) Whenever a new Execution Context is pushed in the Call Stack it holds a reference to the Lexical Environment of its parent, i.e. the EC's memory from where it was invoked.
+
+3) Global execution context holds reference to null.
+
+4)  Javascript engine first looks for the variable/function being accessed in the local scope of the function, and if not found, it keeps on searching the lexical environment of its parent until it finds the variable/function being accessed.
+
+5) The mechanism mentioned in point 4 above is called SCOPE CHAIN.
+
+6) If the variable accessed is not found in the Scope Chain, then you will get the variable is not defined error in the  browser's console.
+
+
 
 
 
