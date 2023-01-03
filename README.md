@@ -73,7 +73,55 @@ Simple first the program tries to see in the local memory if it didn’t found t
 6) If the variable accessed is not found in the Scope Chain, then you will get the variable is not defined error in the  browser's console.
 
 
+## Let & Const in JS. What is temporal zone?
 
+1. let and const are hoisted but its memory is allocated at other place than window which cannot be accessed before initialisation.
+2. Temporal Dead Zone exists until variable is declared and assigned a value.
+3. window.variable OR this.variable will not give value of variable defined using let or const.
+4. We cannot redeclare the same variable with let/const(even with using var the second time).
+5. const variable declaration and initialisation must be done on the same line.
+6. There are three types of error: [1] referenceError {given where variable does not have memory allocation} [2] typeError {given when we change type that is not supposed to be changed} [3] syntaxError {when proper syntax(way of writing a statement) is not used}.
+7. Use const wherever possible followed by let, Use var as little as possible(only if you have to). It helps avoid error.
+8. Initialising variables at the top is good idea, helps shrinks TDZ to zero.
+
+-> let and const are hoisted. we cant use them before initialization is result of "temporal dead zone".
+-> js use diff memory than global execution context to store let and cost. which is reason behind "temporal dead zone"
+-> level of strictness ... var<<let<<const.
+-> var //no temporal dead zone, can redeclare and re-initialize, stored in GES
+    let //use TDZ, can't re-declare, can re-initialize, stored in separate memory
+    const //use TDZ, can't re-declare, can't re-initialize, stored in separate memory
+-> syntax error is similar to compile error. while type and reference error falls under run time error.
+-> syntax error ... violation of JS syntax
+    type error ...  while trying to re-initialize const variable
+    reference error ... while trying to access variable which is not there in global memory.
+
+<img width="812" alt="image" src="https://user-images.githubusercontent.com/22653056/210315157-1c841879-a7b8-4a3b-bc85-7d02398503c5.png">
+
+<img width="1206" alt="image" src="https://user-images.githubusercontent.com/22653056/210315661-0624ca48-5e29-47c5-8b9e-f5629ab714d5.png">
+
+LET & CONST are not attached to WINDOW/GLOBAL object and they are stored in diffrent memory space.
+For let & const The TIME between vraibale is hoisted (memory allocation ) & the variable gets some value is called temprial dead zone, means the varibale is present in the memory space but we cant access them before initialising the value.
+
+Below snippet will throw error saying -> SyntaxError Identifier a has already declared
+
+<img width="1210" alt="image" src="https://user-images.githubusercontent.com/22653056/210317139-c4e10f70-0b49-4f61-beb1-7330650d7b53.png">
+
+But its possible with VAR, var is leniant here you can REDECLARE variables with same name using VAR
+
+<img width="1212" alt="image" src="https://user-images.githubusercontent.com/22653056/210317251-be70431d-6363-408b-aaf1-ae2dbf7a2e15.png">
+
+<img width="1208" alt="image" src="https://user-images.githubusercontent.com/22653056/210315751-c5073bab-128e-491b-8340-59132728c21f.png">
+
+
+## Block Scope & Shadowing
+
+1. Code inside curly bracket is called block.
+2. Multiple statements are grouped inside a block so it can be written where JS expects single statements like in if, else, loop, function etc.
+3. Block values are stored inside separate memory than global. They are stored in block. (the reason let and const are called block scope)
+4. Shadowing of variables using var, let and const.
+5. The shadow should not cross the scope of original otherwise it will give error.
+6. shadowing let with var is illegal shadowing and gives error.
+7. var value stored in global memory and hence can be accessed outside block as well whereas same is not the case with let and const.
 
 
 
